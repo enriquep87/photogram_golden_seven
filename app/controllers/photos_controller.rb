@@ -20,5 +20,17 @@ class PhotosController < ApplicationController
     redirect_to("/photos")
   end
 
+  def edit
+    @photo= Photo.find_by({ :id => params[:id] })
+  end
+
+  def destroy
+    p= Photo.find_by({ :id => params[:id] })
+    p.destroy
+    p.save  
+    redirect_to("/photos")
+
+  end
+
 
 end
